@@ -17,11 +17,21 @@ export function Navbar() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 bg-black/40 px-4 py-3 shadow-neon backdrop-blur-2xl sm:px-5">
         
-        {/* Logo / Brand */}
+        {/* Stylish 3D Logo / Brand */}
         <a href="#home" className="flex items-center gap-3 group">
-          <span className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-cyan-300 via-blue-500 to-violet-500 font-display text-sm font-bold text-white shadow-neon transition group-hover:scale-105">
-            ZB
-          </span>
+          <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400 via-blue-600 to-purple-600 p-[2px] shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(168,85,247,0.8)] group-hover:rotate-3">
+            {/* Inner Glass Card for 3D Layering */}
+            <div className="flex h-full w-full items-center justify-center rounded-[14px] bg-slate-950/90 backdrop-blur-md">
+              {/* 3D Styled Text with Drop Shadow & Metallic Gradient */}
+              <span className="font-display text-base font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-tr from-cyan-300 via-white to-fuchsia-400 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] filter">
+                ZB
+              </span>
+            </div>
+            
+            {/* Top Light Reflection Gloss */}
+            <span className="absolute inset-x-2 top-1 h-[2px] rounded-full bg-white/40 blur-[0.5px]" />
+          </div>
+
           <span className="hidden font-display text-sm font-semibold uppercase tracking-[0.28em] text-white sm:block">
             Zohaib Butt
           </span>
