@@ -68,7 +68,7 @@ export const socialLinks = [
 
 // Key Portfolio Stats
 export const stats = [
-  { label: "Full-Stack & Systems Projects", value: "4", icon: FolderGit2 },
+  { label: "Full-Stack & Web Projects", value: "6", icon: FolderGit2 },
   { label: "Verified Certifications", value: "6", icon: Award },
   { label: "Core Technical Stack", value: "12+", icon: Braces },
   { label: "Degree CGPA (BSSE)", value: "2.99", icon: GraduationCap }
@@ -146,7 +146,7 @@ export const certifications = [
   }
 ];
 
-// All Projects
+// All Projects (Including Live Frontend Applications)
 export const projects = [
   {
     title: "SettleIn - Student Support Platform",
@@ -154,8 +154,29 @@ export const projects = [
       "Architected and implemented a full-stack web application tailored for international student support services. Integrated secure JWT authentication, robust RESTful APIs, and MongoDB for high-availability data flow.",
     tech: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT Auth", "Tailwind CSS"],
     githubUrl: "https://github.com/Zohaib1127",
+    demoUrl: "https://settlein27.netlify.app/",
     gradient: "from-cyan-400 via-blue-500 to-violet-600",
     glow: "rgba(68, 216, 255, 0.34)"
+  },
+  {
+    title: "Ishq-e-Aura - Luxury Perfume Store",
+    description:
+      "Designed and built a modern frontend e-commerce web platform for a luxury perfume brand. Features responsive product showcases, slick UI components, and interactive user interactions.",
+    tech: ["React.js", "Tailwind CSS", "JavaScript", "HTML5"],
+    githubUrl: "https://github.com/Zohaib1127",
+    demoUrl: "https://ishqeaura.netlify.app/",
+    gradient: "from-pink-500 via-purple-500 to-rose-600",
+    glow: "rgba(244, 63, 94, 0.32)"
+  },
+  {
+    title: "Wahab Autos - Automobile Portal",
+    description:
+      "Engineered an elegant automotive dealership web platform. Includes responsive car showcases, service listings, and clean UI navigation optimized for desktop and mobile users.",
+    tech: ["React.js", "Tailwind CSS", "JavaScript", "Framer Motion"],
+    githubUrl: "https://github.com/Zohaib1127",
+    demoUrl: "https://wahabauto.netlify.app/",
+    gradient: "from-blue-500 via-cyan-500 to-teal-500",
+    glow: "rgba(6, 182, 212, 0.32)"
   },
   {
     title: "School Management System",
