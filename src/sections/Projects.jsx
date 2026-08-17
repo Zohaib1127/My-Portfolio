@@ -5,6 +5,15 @@ import { TiltCard } from "../components/TiltCard";
 import { projects } from "../data";
 
 export function Projects() {
+  // Dynamic Live Demo links lookup object
+  const liveDemoLinks = {
+    settlein: "https://settlein27.netlify.app/",
+    ishqe: "https://ishqeaura.netlify.app/",
+    aura: "https://ishqeaura.netlify.app/",
+    wahab: "https://wahabauto.netlify.app/",
+    auto: "https://wahabauto.netlify.app/",
+  };
+
   return (
     <Section 
       id="projects" 
@@ -13,8 +22,20 @@ export function Projects() {
     >
       <div className="grid gap-7 lg:grid-cols-2">
         {projects.map((project, index) => {
-          // Check if this card is SettleIn
-          const isSettleIn = project.title.toLowerCase().includes("settlein");
+          const titleLower = project.title.toLowerCase();
+
+          // Check if explicit demoUrl exists or match keywords for Live Demo link
+          let liveUrl = project.demoUrl || project.liveUrl || null;
+
+          if (!liveUrl) {
+            if (titleLower.includes("settlein")) {
+              liveUrl = liveDemoLinks.settlein;
+            } else if (titleLower.includes("ishq") || titleLower.includes("aura")) {
+              liveUrl = liveDemoLinks.ishqe;
+            } else if (titleLower.includes("wahab") || titleLower.includes("auto")) {
+              liveUrl = liveDemoLinks.wahab;
+            }
+          }
 
           return (
             <motion.div
@@ -74,10 +95,10 @@ export function Projects() {
 
                 {/* Action Buttons Container */}
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  {/* Live Demo Button - STRICTLY FOR SETTLEIN ONLY */}
-                  {isSettleIn && (
+                  {/* Live Demo Button (Renders if liveUrl exists) */}
+                  {liveUrl && (
                     <a 
-                      href="https://settlein27.netlify.app/" 
+                      href={liveUrl} 
                       target="_blank" 
                       rel="noreferrer" 
                       className="neon-button flex flex-1 items-center justify-center gap-2 py-2.5 text-sm font-semibold"
@@ -93,7 +114,7 @@ export function Projects() {
                     target="_blank" 
                     rel="noreferrer" 
                     className={`compact-button compact-button-muted flex items-center justify-center gap-2 ${
-                      isSettleIn ? "flex-1" : "w-full sm:w-auto"
+                      liveUrl ? "flex-1" : "w-full sm:w-auto"
                     }`}
                   >
                     <Github size={17} />
