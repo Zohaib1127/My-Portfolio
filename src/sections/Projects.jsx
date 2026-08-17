@@ -5,13 +5,11 @@ import { TiltCard } from "../components/TiltCard";
 import { projects } from "../data";
 
 export function Projects() {
-  // Dynamic Live Demo links lookup object
+  // Live Demo links map
   const liveDemoLinks = {
     settlein: "https://settlein27.netlify.app/",
     ishqe: "https://ishqeaura.netlify.app/",
-    aura: "https://ishqeaura.netlify.app/",
     wahab: "https://wahabauto.netlify.app/",
-    auto: "https://wahabauto.netlify.app/",
   };
 
   return (
@@ -22,17 +20,18 @@ export function Projects() {
     >
       <div className="grid gap-7 lg:grid-cols-2">
         {projects.map((project, index) => {
-          const titleLower = project.title.toLowerCase();
+          // Normalize title for accurate matching (removes hyphens, spaces, and lowercase)
+          const cleanTitle = project.title.toLowerCase().replace(/[^a-z0-9]/g, "");
 
-          // Check if explicit demoUrl exists or match keywords for Live Demo link
+          // Check if explicit demoUrl/liveUrl exists in data.js, otherwise check by keyword
           let liveUrl = project.demoUrl || project.liveUrl || null;
 
           if (!liveUrl) {
-            if (titleLower.includes("settlein")) {
+            if (cleanTitle.includes("settlein")) {
               liveUrl = liveDemoLinks.settlein;
-            } else if (titleLower.includes("ishq") || titleLower.includes("aura")) {
+            } else if (cleanTitle.includes("ishq") || cleanTitle.includes("aura")) {
               liveUrl = liveDemoLinks.ishqe;
-            } else if (titleLower.includes("wahab") || titleLower.includes("auto")) {
+            } else if (cleanTitle.includes("wahab") || cleanTitle.includes("auto")) {
               liveUrl = liveDemoLinks.wahab;
             }
           }
@@ -95,7 +94,7 @@ export function Projects() {
 
                 {/* Action Buttons Container */}
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  {/* Live Demo Button (Renders if liveUrl exists) */}
+                  {/* Live Demo Button */}
                   {liveUrl && (
                     <a 
                       href={liveUrl} 
